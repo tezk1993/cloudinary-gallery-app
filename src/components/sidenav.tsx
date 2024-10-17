@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-import { Album, ArchiveIcon, GalleryVertical, HeartIcon } from "lucide-react";
+import { Album, GalleryVertical, HeartIcon } from "lucide-react";
 
 export default async function Sidenav() {
   return (

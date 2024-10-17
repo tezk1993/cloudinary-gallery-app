@@ -4,7 +4,6 @@ import { ForceRefresh } from "@/components/force-refresh";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
-import cloudinary from "cloudinary";
 import { CldImage } from "next-cloudinary";
 import { useState } from "react";
 

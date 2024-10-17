@@ -15,7 +15,7 @@ export function CloudinaryImage(
     albums: { name: string; path: string }[];
   } & Omit<CldImageProps, "src">
 ) {
-  const [transition, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
   const { imageData, onUnfavorite } = props;
   const [isFavorited, setIsFavorited] = useState(
     imageData.tags.includes("favorited")

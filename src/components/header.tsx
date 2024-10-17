@@ -1,5 +1,3 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { AvatarImage } from "@radix-ui/react-avatar";
 import logo from "../assets/SnapStash_logo.png";
 import Image from "next/image";
 import UploadButton from "@/app/gallery/upload-button";

@@ -1,19 +1,7 @@
 import { SearchResult } from "@/app/gallery/page";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { FolderPlus } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+
 import { useState } from "react";
-import { AddImageToAlbum } from "./actions";
 import { CloudinaryImage } from "../CloudinaryImage";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 

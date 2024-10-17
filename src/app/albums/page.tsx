@@ -6,13 +6,12 @@ export type AlbumData = {
   folders: {
     name: string;
     path: string;
-    picture_amount: Number;
+    picture_amount: number;
   }[];
 };
 
 export default async function Albums() {
   const albums = (await cloudinary.v2.api.root_folders()) as AlbumData;
-  const rootFolders = await cloudinary.v2.api.root_folders();
 
   albums.folders.map(async (album) => {
     const amount = (await cloudinary.v2.search

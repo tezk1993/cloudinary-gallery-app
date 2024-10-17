@@ -1,9 +1,7 @@
 import { ForceRefresh } from "@/components/force-refresh";
 import { CloudinaryImage } from "../../components/CloudinaryImage";
-import UploadButton from "./upload-button";
 import cloudinary from "cloudinary";
 import { ImageGrid } from "@/components/imagegrid";
-import { Input } from "@/components/ui/input";
 import SearchForm from "./searchform";
 
 export type SearchResult = {

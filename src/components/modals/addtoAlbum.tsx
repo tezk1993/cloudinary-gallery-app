@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction, useState } from "react";
+
 import { SearchResult } from "@/app/gallery/page";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,7 +14,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckIcon, FolderPlus } from "lucide-react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { AddImageToAlbum } from "./actions";
 
 import { cn } from "@/lib/utils";
