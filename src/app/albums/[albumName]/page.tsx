@@ -3,11 +3,7 @@ import { CloudinaryImage } from "@/components/CloudinaryImage";
 import UploadButton from "@/app/gallery/upload-button";
 import cloudinary from "cloudinary";
 import { ImageGrid } from "@/components/imagegrid";
-
-export type SearchResult = {
-  public_id: string;
-  tags: string[];
-};
+import { SearchResult } from "@/app/gallery/page";
 
 export default async function AlbumPage({
   params: { albumName },
@@ -22,7 +18,9 @@ export default async function AlbumPage({
     .with_field("tags")
     .max_results(10)
     .execute()) as { resources: SearchResult[] };
-  console.log(results);
+  const { folders: albums } = (await cloudinary.v2.api.root_folders()) as {
+    folders: { name: string; path: string }[];
+  };
 
   return (
     <section>
@@ -43,6 +41,7 @@ export default async function AlbumPage({
                 height="300"
                 sizes="100vw"
                 alt="Description of my image"
+                albums={albums}
               />
             );
           }}

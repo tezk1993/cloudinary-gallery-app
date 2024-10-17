@@ -14,7 +14,6 @@ export default function UploadButton() {
       <CldUploadButton
         className="font-bold flex gap-2 group"
         onClose={(result: CloudinaryUploadWidgetResults) => {
-          console.log(result);
           router.refresh();
         }}
         uploadPreset="yzohvumf"

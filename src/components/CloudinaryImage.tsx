@@ -1,17 +1,18 @@
 "use client";
 
-import Heart from "@/components/icons/heart";
 import { CldImage, CldImageProps } from "next-cloudinary";
 import React, { useState, useTransition } from "react";
 import { setFavoriteStateAction } from "../app/gallery/actions";
 import { SearchResult } from "../app/gallery/page";
-import FullHeart from "@/components/icons/full-heart";
 import { ImageMenu } from "./imageMenu";
+import { Heart, HeartIcon } from "lucide-react";
+import { ImageFocus } from "./modals/imagefocus";
 
 export function CloudinaryImage(
   props: {
     imageData: SearchResult;
     onUnfavorite?: (unheartedResource: SearchResult) => void;
+    albums: { name: string; path: string }[];
   } & Omit<CldImageProps, "src">
 ) {
   const [transition, startTransition] = useTransition();
@@ -21,36 +22,40 @@ export function CloudinaryImage(
   );
 
   return (
-    <div className="relative">
-      <CldImage {...props} src={imageData.public_id} />
+    <div className="relative group">
+      <CldImage
+        className="w-full h-full"
+        {...props}
+        src={imageData.public_id}
+      />
 
-      <div className="absolute top-2 right-2 flex flex-col :bg-slate-600 hover:bg-slate-600 rounded-md p-2">
+      <div className="absolute top-2 right-2 flex flex-col  rounded-md p-1 items-center gap-2 group-hover:bg-gray-800 transition-all">
         {isFavorited ? (
-          <FullHeart
+          <Heart
             onClick={() => {
               startTransition(() => {
-                console.log("Unfavorite", imageData.public_id);
                 onUnfavorite?.(imageData);
                 setIsFavorited(false);
                 setFavoriteStateAction(imageData.public_id, false);
               });
             }}
-            className=" hover:text-white text-red-500 group hover:cursor-pointer"
+            className=" hover:text-white text-red-500 group hover:cursor-pointer fill-red-500"
           />
         ) : (
-          <Heart
+          <HeartIcon
             onClick={() => {
               startTransition(() => {
-                console.log("Favorite", imageData.public_id);
                 setIsFavorited(true);
 
                 setFavoriteStateAction(imageData.public_id, true);
               });
             }}
-            className=" hover:text-red-500 text-white group hover:cursor-pointer"
+            className=" hover:text-red-500 text-slate-400 group hover:cursor-pointer "
           />
         )}
-        <ImageMenu image={imageData} />
+        <ImageFocus imageData={imageData} albums={props.albums} />
+
+        <ImageMenu image={imageData} albums={props.albums} />
       </div>
     </div>
   );
