@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -36,7 +37,14 @@ export default function SearchForm({
             onChange={(e) => setSearchParams(e.currentTarget.value)}
             className="col-span-5"
           />
-          <Button type="submit">Search</Button>
+
+          <Button type="submit" size={"icon"} className="lg:hidden flex  ">
+            <SearchIcon />
+          </Button>
+          <Button type="submit" className="lg:flex hidden flex-row gap-2">
+            <span>Search </span>
+            <SearchIcon />
+          </Button>
         </div>
       </div>
     </form>

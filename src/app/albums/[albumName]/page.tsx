@@ -1,6 +1,5 @@
 import { ForceRefresh } from "@/components/force-refresh";
 import { CloudinaryImage } from "@/components/CloudinaryImage";
-import UploadButton from "@/app/gallery/upload-button";
 import cloudinary from "cloudinary";
 import { ImageGrid } from "@/components/imagegrid";
 import { SearchResult } from "@/app/gallery/page";
@@ -28,7 +27,6 @@ export default async function AlbumPage({
       <div>
         <div className="flex justify-between">
           <h1 className="text-4xl font-bold">{albumName}</h1>
-          <UploadButton />
         </div>
         <ImageGrid
           images={results.resources}

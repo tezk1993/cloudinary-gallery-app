@@ -36,7 +36,7 @@ export default async function Gallery({
     <section>
       <ForceRefresh />
       <div>
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-col md:flex-row">
           <h1 className="text-4xl font-bold">Gallery</h1>
           <SearchForm initialSearch={search} />
         </div>

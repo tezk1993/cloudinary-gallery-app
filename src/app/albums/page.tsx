@@ -31,7 +31,7 @@ export default async function Albums() {
         <div className="flex justify-between">
           <h1 className="text-4xl font-bold">Albums</h1>
         </div>
-        <div className="grid grid-cols-4 grid-flow-col gap-4 mt-4 ">
+        <div className="grid grid-cols-1 lg:grid-flow-col  gap-2 mt-4 lg:grid-cols-3  md:grid-cols-2 ">
           {albums.folders.map((album) => (
             <AlbumCard key={album.path} name={album.name} />
           ))}

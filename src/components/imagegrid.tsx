@@ -18,10 +18,10 @@ export function ImageGrid({
   }
 
   return (
-    <div className="grid grid-cols-4 gap-4 mt-4">
+    <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-4 ">
       {[getColumns(0), getColumns(1), getColumns(2), getColumns(3)].map(
         (column, idx) => (
-          <div className="flex flex-col gap-4" key={idx}>
+          <div className="flex flex-col gap-4  " key={idx}>
             {column.map(getImage)}
           </div>
         )
